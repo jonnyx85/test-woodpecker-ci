@@ -26,8 +26,8 @@ steps:
   - name: notify-discord-success
     image: appleboy/drone-discord
     settings:
-      webhook_id: 1402425579256676474
-      webhook_token: XNoaViqoA3UvrDX3pF6eKroO-oLo8M0OV0MAg6p9ZIT-kdbDRhCofJzBZP4dTdbdqWRP
+      webhook_id: 1402426366166700163
+      webhook_token: 2-1obP18tKLS-EKZAUwtEK-UZOP3P7WoWDwi__wHaAUHEaKKfDcI7PHU7BCDGHFCgFfI
       message: |
         ✅ **Build Successful!**
         **Repository:** {{repo.owner}}/{{repo.name}}
@@ -43,8 +43,8 @@ steps:
   - name: notify-discord-failure
     image: appleboy/drone-discord
     settings:
-      webhook_id: 1402425579256676474
-      webhook_token: XNoaViqoA3UvrDX3pF6eKroO-oLo8M0OV0MAg6p9ZIT-kdbDRhCofJzBZP4dTdbdqWRP
+      webhook_id: 1402426366166700163
+      webhook_token: 2-1obP18tKLS-EKZAUwtEK-UZOP3P7WoWDwi__wHaAUHEaKKfDcI7PHU7BCDGHFCgFfI
       message: |
         ❌ **Build Failed!**
         **Repository:** {{repo.owner}}/{{repo.name}}
