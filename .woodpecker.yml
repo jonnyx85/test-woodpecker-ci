@@ -22,3 +22,37 @@ steps:
     when:
       event: push
       branch: main
+
+  - name: notify-discord-success
+    image: appleboy/drone-discord
+    settings:
+      webhook_id: 1402425579256676474
+      webhook_token: XNoaViqoA3UvrDX3pF6eKroO-oLo8M0OV0MAg6p9ZIT-kdbDRhCofJzBZP4dTdbdqWRP
+      message: |
+        ✅ **Build Successful!**
+        **Repository:** {{repo.owner}}/{{repo.name}}
+        **Branch:** {{commit.branch}}
+        **Commit:** {{commit.message}}
+        **Author:** {{commit.author}}
+        **Build:** #{{build.number}}
+        **Status:** Success 🎉
+        [View Commit]({{commit.link}})
+    when:
+      status: success
+
+  - name: notify-discord-failure
+    image: appleboy/drone-discord
+    settings:
+      webhook_id: 1402425579256676474
+      webhook_token: XNoaViqoA3UvrDX3pF6eKroO-oLo8M0OV0MAg6p9ZIT-kdbDRhCofJzBZP4dTdbdqWRP
+      message: |
+        ❌ **Build Failed!**
+        **Repository:** {{repo.owner}}/{{repo.name}}
+        **Branch:** {{commit.branch}}
+        **Commit:** {{commit.message}}
+        **Author:** {{commit.author}}
+        **Build:** #{{build.number}}
+        **Status:** Failed ⚠️
+        [View Commit]({{commit.link}})
+    when:
+      status: failure
