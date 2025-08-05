@@ -1,0 +1,12 @@
+{
+  "name": "test-ci-app",
+  "version": "1.0.0",
+  "description": "Test app for Woodpecker CI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Tests passed!'",
+    "build": "echo 'Build successful!'"
+  },
+  "author": "Jonathan",
+  "license": "MIT"
+}

@@ -1,0 +1,24 @@
+when:
+  - event: [push, pull_request]
+
+steps:
+  - name: test
+    image: node:20-alpine
+    commands:
+      - npm install
+      - npm test
+      
+  - name: build
+    image: node:20-alpine
+    commands:
+      - npm run build
+      
+  - name: docker-build
+    image: plugins/docker
+    settings:
+      repo: jonkai/test-ci-app
+      tags: latest
+      dockerfile: Dockerfile
+    when:
+      event: push
+      branch: main
